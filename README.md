@@ -11,4 +11,4 @@ In fact, I have to admit I am not an Anaconda user as I find more easy and contr
 
 # Next Sections
 - [Install_dnndk_tf.md](README/Install_dnndk_tf.md)
-- [Install Jupiter Notebook](README/Appendix.md)
+- [Install Jupiter Notebook (without Anaconda)](README/Appendix.md)
