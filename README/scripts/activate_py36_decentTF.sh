@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo ""
-echo "VIRTUALENV WITH DNNDK 3.0, PYTHON3.6, CUDA-9.0 cuDNN-7.0.5, TENSORFLOW-GPU 1.9"
+echo "Python3.6 vEnv, DNNDK3.0TF, OpenCV3.4.3, CUDA-9.0 cuDNN-7.0.5, TF-GPU1.9/Keras2.2.4 "
 echo ""
 
 source ~/.bashrc
