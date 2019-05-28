@@ -4,7 +4,7 @@ This repository enhances the explanations of Xilinx UG1327, about the install pr
 
 Instead of using ``anaconda`` and ``pip`` (as suggested in the UG1327), which is quite a "dirty" mix of two different ways to manage virtual environments in Python, I have used only the ``mkvirtualenv`` utility of Python, thus skipping completely the need of ``anaconda``.
 
-In fact, I have to admit I am not an Anaconda user as I find more easy and controllable to use the Python Virtual Envs, although they might seem lower (abstraction) level than Anaconda.
+In fact, I have to admit I am not an Anaconda user as I find more easy and controllable to use the Python [virtual environments](https://docs.python-guide.org/dev/virtualenvs), although they might seem lower (abstraction) level than Anaconda.
 
 ## History
 - 28 May 2019: ``decent`` and ``dnnc`` install. Still missing how to install the target board packages
