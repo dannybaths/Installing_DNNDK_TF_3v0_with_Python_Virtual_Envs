@@ -93,7 +93,7 @@ decent_q --help
 You should see something similar to what illustrated in the following screenshot:
 ![figure](../README/images/decent_q.png)
 
-To have a simpler life it is strongly recommended that you create a shell script file named [activate_py36_decentTF.sh](README/scripts.activate_py36_decentTF.sh) like this:
+To have a simpler life it is strongly recommended that you create a shell script file named [activate_py36_decentTF.sh](README/scripts/activate_py36_decentTF.sh) like this:
 ```
 #!/bin/sh
 
