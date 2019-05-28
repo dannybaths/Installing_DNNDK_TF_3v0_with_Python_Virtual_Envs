@@ -191,6 +191,17 @@ workon my_py36_decentTF
 pip install -r py36_decentTF_requirements.txt
 ```
 
+A good way to check the install is by running either the following short [test_caffe_py3x.py](README/test_caffe_py3x.py) from Python 3.6:
+```
+workon py36_decentTF # enter into python3.6 virtual env
+python test_caffe_py3x.py
+```
+or the following short [test_caffe_py27.py](README/test_caffe_py27.py) from Python 2.7:
+```
+workon decentTF # enter into python2.7 virtual env
+python test_caffe_py27.py
+```
+
 
 ## 5.0 Install dnnc
 
