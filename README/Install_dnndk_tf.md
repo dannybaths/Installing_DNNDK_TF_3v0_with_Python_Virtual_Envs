@@ -93,12 +93,12 @@ decent_q --help
 You should see something similar to what illustrated in the following screenshot:
 ![figure](../README/images/decent_q.png)
 
-To have a simpler life it is strongly recommended that you create a shell script file named ```activate_py36_decentTF.sh``` like this
+To have a simpler life it is strongly recommended that you create a shell script file named [activate_py36_decentTF.sh](README/scripts.activate_py36_decentTF.sh) like this:
 ```
 #!/bin/sh
 
 echo ""
-echo "Python3.6 VirtualEnv, DNNDK 3.0, CUDA-9.0 cuDNN-7.0.5, TENSORFLOW-GPU 1.9/Keras 2.1"
+echo "Python3.6 vEnv, DNNDK3.0TF, OpenCV3.4.3, CUDA-9.0 cuDNN-7.0.5, TF-GPU1.9/Keras2.2.4 "
 echo ""
 
 source ~/.bashrc
@@ -110,7 +110,8 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 export PYTHONPATH=/usr/local/lib/python3.6/dist-packages:$PYTHONPATH
 
-#NVIDIA CUDA 9.0 and 8.0 Toolkits
+# Decent TF
+#NVIDIA CUDA 9.0 Toolkit
 export PATH=/usr/local/cuda-9.0/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64/:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
@@ -121,6 +122,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:$LD_LIBRARY_PATH
 
 # enter the virtualenv
 workon py36_decentTF
+
 ```
 and launch it any time you need to work on your ```py36_decentTF``` virtual environment.
 
@@ -157,35 +159,40 @@ pip install protobuf
 decent_q --help
 ```
 
-To have a simpler life it is strongly recommended that you create a shell script file named ```activate_decentTF.sh``` like this:
+To have a simpler life it is strongly recommended that you create a shell script file named [activate_decentTF.sh](README/scripts/activate_decentTF.sh) like this:
 ```
-#!/bin/sh
+#!/bin/bash
 
-echo ""
-echo "Python2.7 VirtualEnv, DNNDK 3.0, PYTHON2.7, CUDA-8.0 cuDNN-7.0.5, TENSORFLOW-GPU 1.9"
-echo ""
-
-source ~/.bashrc
-
-# virtualenv for python2.7
+# virtualen and virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
 source /usr/local/bin/virtualenvwrapper.sh
-export PYTHONPATH=/usr/local/lib/python2.7/dist-packages:$PYTHONPATH
+export PYTHONPATH=/usr/local/lib/python2.7/dist-packages
 
-#NVIDIA CUDA 8.0 Toolkit
-export PATH=/usr/local/cuda-8.0/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64/:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
-export PATH=/usr/local/bin/:$PATH
-
-# enter the virtualenv
 workon decentTF
+
+export CAFFE_ROOT=$HOME/caffe_tools/BVLC-Caffe/build/install
+export LD_LIBRARY_PATH=$CAFFE_ROOT/build/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$CAFFE_ROOT/python:$PYTHONPATH
+export PATH=/home/danieleb/.virtualenvs/decentTF/bin:/bin:/usr/bin:/usr/local/bin:$PATH
+
+echo "Python 2.7 VirtualEnv: DNNDK3.0-decentTF, Caffe (with cmake), OpenCV4.1, Keras2.2.4/TF1.9.0 "
 ```
 and launch it any time you need to work on your ```decentTF``` virtual environment.
 
-## 4.0 Install dnnc
+## 4.0 Some scripts
+The folder [scripts](README/scripts) contains some shell scripts about different configurations of python virtual environments for your reference, depending on the OpenCV, TensorFlow and Keras releases (some of them also include Caffe, you might comment the related lines).
+
+In particular the files ``*_requirements.txt`` contain all the packages that were installed with the command ``pip`` (from within your related virtual environment).
+Such files were generated with the command ``pip freeze >> namevirtualenv_requirements.txt`` and though them you can recreate the same environment from scratch simply with the following commands (for example related to ``my_py36_decentTF`` by using [py36_decentTF_requirements.txt](README/scripts/py36_decentTF_requirements.txt)):
+```
+mkvirtualenv my_py36_decentTF -p python3.6 # create a virtual env with this name
+workon my_py36_decentTF
+pip install -r py36_decentTF_requirements.txt
+```
+
+
+## 5.0 Install dnnc
 
 To install the **dnnc** (DNNDK CNN compiler) you have to select one of the allowed target boards, for example the <a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">ZCU102</a>. Then execute the following commands:
 ```
