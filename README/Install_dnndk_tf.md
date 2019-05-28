@@ -1,14 +1,14 @@
-# How to install TensorFlow based DNNDK3.0 with Python Virtual Environments
+# How to install TensorFlow-based Xilinx DNNDK3.0 with Python Virtual Environments
 
-Despite what written in [UG1327](https://www.xilinx.com/support/documentation/user_guides/ug1327-dnndk-user-guide.pdf), you do not need [anaconda3](https://www.anaconda.com/) to install the DNNDK 3.0 TensorFlow toolchain (shortly "DNNDK TF 3.0" in the following), you can just rely on **Python Virtual Environments**, thus having a much simpler and more clean installation procedure.
+Despite what written in [UG1327](https://www.xilinx.com/support/documentation/user_guides/ug1327-dnndk-user-guide.pdf), you do not need [anaconda3](https://www.anaconda.com/) to install the Xilixn DNNDK 3.0 TensorFlow toolchain (shortly "DNNDK TF 3.0" in the following), you can just rely on **Python Virtual Environments**, thus having a much simpler and more clean installation procedure.
 
 ## 0. Prerequisites
 
-1. This tutorial assumes you are using a PC mounting **Ubuntu 16.04 Linux OS** with Python [virtual environments](https://docs.python-guide.org/dev/virtualenvs) (by default Ubuntu 16.04 comes with Python 2.7 and 3.5, shortly named ``python`` -or ``python2``- and ``python3``, have in mind that Python 2.7 will be deprecated at the end of year 2019  ). An excellent explanation about setting up a python virtual environment can be found in the  ["Ubuntu 16.04: How to install OpenCV" install tutorial by PyImageSearch](https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/), which deals about installing OpenCV 3.4 from scratch on a Python3.5 Virtual Environment. Exactly the same procedure can be adopted to install **Python3.6**, which is mandatory for the correct working of Xilinx DNNDK TF 3.0, unless you want to use the "old" .
+1. This tutorial assumes you are using a PC mounting **Ubuntu 16.04 Linux OS** with Python [virtual environments](https://docs.python-guide.org/dev/virtualenvs) (by default Ubuntu 16.04 comes with Python 2.7 and 3.5, shortly named ``python`` -or ``python2``- and ``python3``, have in mind that Python 2.7 will be deprecated at the end of year 2019). An excellent explanation about setting up a python virtual environment can be found in the  ["Ubuntu 16.04: How to install OpenCV" install tutorial by PyImageSearch](https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/), which deals about installing OpenCV 3.4 from scratch on a Python3.5 Virtual Environment. Exactly the same procedure can be adopted to install ``python3.6``, which is mandatory for the correct behavior of Xilinx DNNDK TF 3.0, unless you want to use the "old" ``python2``.
 
-2. Your PC "should have" a CUDA-compatible GPU card and the following libraries: CUDA 8.0 or 9.0, and cuDNN 7.0.5. Alternatively, you can use a **p2.xlarge EC2** instance of Deep Learning Base AMI Ubuntu (version 15 or beyond) from **AWS**.  Many of the Ubuntu packages required by ML tools are already required by Xilinx [SDx tools](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_1/ug1238-sdx-rnil.pdf) as well, so you would have to install them anyway. Note that the DNNDK TF 3.0 tools can also work with CPU only, without any CUDA-compatible GPU, of course at detriment of simulation speed.
+2. The Xilinx DNNDK TF 3.0 tool can also work with CPU only, without any CUDA-compatible GPU, of course at detriment of simulation speed. Nevertheless, if your PC has a CUDA-compatible GPU card then you need the following libraries: CUDA 8.0 or 9.0, and cuDNN 7.0.5. Alternatively, you can use a **p2.xlarge EC2** instance of Deep Learning Base AMI Ubuntu (version 15 or beyond) from **AWS**.  Many of the Ubuntu packages required by ML tools are already required by Xilinx [SDx tools](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_1/ug1238-sdx-rnil.pdf) as well, so you would have to install them anyway.
 
-3. [Xilinx DNNDK TF 3.0](https://www.xilinx.com/member/forms/download/dnndk-eula-xef.html?filename=xlnx_dnndk_v3.0_190430.tar.gz) release and related [UG1327](https://www.xilinx.com/support/documentation/user_guides/ug1327-dnndk-user-guide.pdf) available from [Xilixn Edge AI Resources](https://www.xilinx.com/products/design-tools/ai-inference/ai-developer-hub.html#edge) webpage. Once downloaded it and stored into your ```$HOME``` directory execute the following commands:
+3. [Xilinx DNNDK TF 3.0](https://www.xilinx.com/member/forms/download/dnndk-eula-xef.html?filename=xlnx_dnndk_v3.0_190430.tar.gz) release and related [UG1327](https://www.xilinx.com/support/documentation/user_guides/ug1327-dnndk-user-guide.pdf) available from [Xilinx Edge AI Resources](https://www.xilinx.com/products/design-tools/ai-inference/ai-developer-hub.html#edge) webpage. Once downloaded it and stored into your ```$HOME``` directory execute the following commands:
 ```
 cd $HOME
 mkdir ML
@@ -18,11 +18,11 @@ mv $HOME/xlnx_dnndk_v3.0_190430.tar.gz .
 tar -xvf xlnx_dnndk_v3.0_190430.tar.gz
 cd xlnx_dnndk_v3.0_190430
 cd xilinx_dnndk_v3.0
-ls $HOME/ML/DNNDK3.0/xlnx_dnndk_v3.0_190430/xilinx_dnndk_v3.0/host_x86/decent-tf/ubuntu16.04/tensorflow_gpu-1.9.0-cp27-cp27mu-linux_x86_64.whl # package for Python2.7
-ls $HOME/ML/DNNDK3.0/xlnx_dnndk_v3.0_190430/xilinx_dnndk_v3.0/host_x86/decent-tf/ubuntu16.04/tensorflow_gpu-1.9.0-cp36-cp36m-linux_x86_64.whl  # package for Python3.6
+ls $HOME/ML/DNNDK3.0/xlnx_dnndk_v3.0_190430/xilinx_dnndk_v3.0/host_x86/decent-tf/ubuntu16.04/tensorflow_gpu-1.9.0-cp27-cp27mu-linux_x86_64.whl # package for GPU-based Python2.7
+ls $HOME/ML/DNNDK3.0/xlnx_dnndk_v3.0_190430/xilinx_dnndk_v3.0/host_x86/decent-tf/ubuntu16.04/tensorflow_gpu-1.9.0-cp36-cp36m-linux_x86_64.whl  # package for GPU-based Python3.6
 ```
 
-4. <a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">ZCU102</a> target board and related [DNNDK 3.0 image file](https://www.xilinx.com/member/forms/download/zcu102-image-license-xef.html?filename=xilinx-zcu102-prod-dpu1.4-2018.3-desktop-buster-2019-04-24.img.zip).
+4. <a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">ZCU102</a> target board and related [DNNDK TF 3.0 image file](https://www.xilinx.com/member/forms/download/zcu102-image-license-xef.html?filename=xilinx-zcu102-prod-dpu1.4-2018.3-desktop-buster-2019-04-24.img.zip).
 
 
 ## 1.0 Install Dependent Libraries
@@ -41,7 +41,7 @@ sudo add-apt-repository ppa:jonathonf/python-3.6
 sudo apt-get install python3.6
 sudo apt-get install python3.6-dev
 ```
-Edit your ```$HOME/.bashrc``` hidden file by adding in the bottom the following lines:
+Edit your ```$HOME/.bashrc``` hidden file by appending the following lines:
 ```
 # MACHINE LEARNING: reset variables
 PATH=$(getconf PATH)
@@ -61,7 +61,7 @@ export PATH=/usr/local/bin/:$PATH
 
 ## 2.0 Install decent on Python 3.6 Virtual Environment
 
-Now run the following commands:
+The following commands illustrate how to install Python 3.6 and its virtual environment. Note that the same procedure works also with Python 3.5, you only need to replace "3.6" with "3.5".
 
 ```
 wget https://bootstrap.pypa.io/get-pip.py
@@ -84,9 +84,8 @@ pip install $HOME/ML/DNNDK3.0/xlnx_dnndk_v3.0_190430/xilinx_dnndk_v3.0/host_x86/
 
 #install other libraries required by DNNDK TF 3.0
 pip install numpy opencv-python sklearn scipy progressbar2
-pip install keras
-pip install google
-pip install protobuf
+pip install keras # just if you want a more recent version
+pip install google protobuf
 
 # check the just-installed tool
 decent_q --help
@@ -99,7 +98,7 @@ To have a simpler life it is strongly recommended that you create a shell script
 #!/bin/sh
 
 echo ""
-echo "VIRTUALENV WITH DNNDK 3.0, PYTHON3.6, CUDA-9.0 cuDNN-7.0.5, TENSORFLOW-GPU 1.9"
+echo "Python3.6 VirtualEnv, DNNDK 3.0, CUDA-9.0 cuDNN-7.0.5, TENSORFLOW-GPU 1.9/Keras 2.1"
 echo ""
 
 source ~/.bashrc
@@ -163,7 +162,7 @@ To have a simpler life it is strongly recommended that you create a shell script
 #!/bin/sh
 
 echo ""
-echo "VIRTUALENV WITH DNNDK 3.0, PYTHON2.7, CUDA-8.0 cuDNN-7.0.5, TENSORFLOW-GPU 1.9"
+echo "Python2.7 VirtualEnv, DNNDK 3.0, PYTHON2.7, CUDA-8.0 cuDNN-7.0.5, TENSORFLOW-GPU 1.9"
 echo ""
 
 source ~/.bashrc
@@ -202,3 +201,5 @@ You should see something as illustrated in the following screenshot:
 
 
 ## 5.0 Install the DNNDK libraries on the Target ZCU102 board
+
+Yet to be done, although the explanations in UG1327 are quite good.
