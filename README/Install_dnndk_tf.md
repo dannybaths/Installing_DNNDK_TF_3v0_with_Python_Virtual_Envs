@@ -93,7 +93,7 @@ decent_q --help
 You should see something similar to what illustrated in the following screenshot:
 ![figure](../README/images/decent_q.png)
 
-To have a simpler life it is strongly recommended that you create a shell script file named [activate_py36_decentTF.sh](README/scripts/activate_py36_decentTF.sh) like this:
+To have a simpler life it is strongly recommended that you create a shell script file named [activate_py36_decentTF.sh](../README/scripts/activate_py36_decentTF.sh) like this:
 ```
 #!/bin/sh
 
@@ -159,7 +159,7 @@ pip install protobuf
 decent_q --help
 ```
 
-To have a simpler life it is strongly recommended that you create a shell script file named [activate_decentTF.sh](README/scripts/activate_decentTF.sh) like this:
+To have a simpler life it is strongly recommended that you create a shell script file named [activate_decentTF.sh](../README/scripts/activate_decentTF.sh) like this:
 ```
 #!/bin/bash
 
@@ -181,22 +181,22 @@ echo "Python 2.7 VirtualEnv: DNNDK3.0-decentTF, Caffe (with cmake), OpenCV4.1, K
 and launch it any time you need to work on your ```decentTF``` virtual environment.
 
 ## 4.0 Some scripts
-The folder [scripts](README/scripts) contains some shell scripts about different configurations of python virtual environments for your reference, depending on the OpenCV, TensorFlow and Keras releases (some of them also include Caffe, you might comment the related lines).
+The folder [scripts](../README/scripts) contains some shell scripts about different configurations of python virtual environments for your reference, depending on the OpenCV, TensorFlow and Keras releases (some of them also include Caffe, you might comment the related lines).
 
 In particular the files ``*_requirements.txt`` contain all the packages that were installed with the command ``pip`` (from within your related virtual environment).
-Such files were generated with the command ``pip freeze >> namevirtualenv_requirements.txt`` and though them you can recreate the same environment from scratch simply with the following commands (for example related to ``my_py36_decentTF`` by using [py36_decentTF_requirements.txt](README/scripts/py36_decentTF_requirements.txt)):
+Such files were generated with the command ``pip freeze >> namevirtualenv_requirements.txt`` and though them you can recreate the same environment from scratch simply with the following commands (for example related to ``my_py36_decentTF`` by using [py36_decentTF_requirements.txt](../README/scripts/py36_decentTF_requirements.txt)):
 ```
 mkvirtualenv my_py36_decentTF -p python3.6 # create a virtual env with this name
 workon my_py36_decentTF
 pip install -r py36_decentTF_requirements.txt
 ```
 
-A good way to check the install is by running either the following short [test_caffe_py3x.py](README/test_caffe_py3x.py) from Python 3.6:
+A good way to check the install is by running either the following short [test_caffe_py3x.py](../README/test_caffe_py3x.py) from Python 3.6:
 ```
 workon py36_decentTF # enter into python3.6 virtual env
 python test_caffe_py3x.py
 ```
-or the following short [test_caffe_py27.py](README/test_caffe_py27.py) from Python 2.7:
+or the following short [test_caffe_py27.py](../README/test_caffe_py27.py) from Python 2.7:
 ```
 workon decentTF # enter into python2.7 virtual env
 python test_caffe_py27.py
