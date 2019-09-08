@@ -7,7 +7,9 @@ Instead of using ``anaconda`` and ``pip`` (as suggested in the UG1327), which is
 In fact, I have to admit I am not an Anaconda user as I find more easy and controllable to use the Python [virtual environments](https://docs.python-guide.org/dev/virtualenvs), although they might seem lower (abstraction) level than Anaconda.
 
 ## History
-- 28 May 2019: ``decent`` and ``dnnc`` install. Still missing how to install the target board packages
+- 28 May 2019: ``decent`` and ``dnnc`` install. 
+- 8 Sep 2019: the same procedure works fine also with the newest DNNDK 3.1.
+- Still missing how to install the target board packages, but this is well explained in the UG1327)
 
 # Next Sections
 - [Install_dnndk_tf.md](README/Install_dnndk_tf.md)
