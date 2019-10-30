@@ -1,6 +1,6 @@
-# Installing Xilinx DNNDK TF 3.0 with Python 3.6 Virtual Environment (and not with Anaconda3)
+# Installing Xilinx DNNDK TF with Python 3.6 Virtual Environment (and not with Anaconda3)
 
-This repository enhances the explanations of Xilinx UG1327, about the install procedure of DNNDK 3.0 TF.
+This repository enhances the explanations of Xilinx UG1327, about the install procedure of DNNDK TF.
 
 Instead of using ``anaconda`` and ``pip`` (as suggested in the UG1327), which is quite a "dirty" mix of two different ways to manage virtual environments in Python, I have used only the ``mkvirtualenv`` utility of Python, thus skipping completely the need of ``anaconda``.
 
