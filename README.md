@@ -8,7 +8,7 @@ In fact, I have to admit I am not an Anaconda user as I find more easy and contr
 
 ## History
 - 28 May 2019: ``decent`` and ``dnnc`` install. Still missing how to install the target board packages
-- 30 Oct 2019: some updates
+- 30 Oct 2019: some updates.
 
 # Next Sections
 - [Install_dnndk_tf.md](README/Install_dnndk_tf.md)
