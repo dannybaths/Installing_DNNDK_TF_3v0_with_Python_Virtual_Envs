@@ -1,12 +1,12 @@
-# How to install TensorFlow-based Xilinx DNNDK3.0 with Python Virtual Environments
+# How to install TensorFlow-based Xilinx DNNDK with Python Virtual Environments
 
-Despite what written in [UG1327](https://www.xilinx.com/support/documentation/user_guides/ug1327-dnndk-user-guide.pdf), you do not need [anaconda3](https://www.anaconda.com/) to install the Xilixn DNNDK 3.0 TensorFlow toolchain (shortly "DNNDK TF 3.0" in the following), you can just rely on **Python Virtual Environments**, thus having a much simpler and more clean installation procedure.
+Despite what written in [UG1327](https://www.xilinx.com/support/documentation/user_guides/ug1327-dnndk-user-guide.pdf), you do not need [anaconda3](https://www.anaconda.com/) to install the Xilixn DNNDK 3.0 TensorFlow toolchain (shortly "DNNDK TF" in the following), you can just rely on **Python Virtual Environments**, thus having a much simpler and more clean installation procedure.
 
 ## 0. Prerequisites
 
 1. This tutorial assumes you are using a PC mounting **Ubuntu 16.04 Linux OS** with Python [virtual environments](https://docs.python-guide.org/dev/virtualenvs) (by default Ubuntu 16.04 comes with Python 2.7 and 3.5, shortly named ``python`` -or ``python2``- and ``python3``, have in mind that Python 2.7 will be deprecated at the end of year 2019). An excellent explanation about setting up a python virtual environment can be found in the  ["Ubuntu 16.04: How to install OpenCV" install tutorial by PyImageSearch](https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/), which deals about installing OpenCV 3.4 from scratch on a Python3.5 Virtual Environment. Exactly the same procedure can be adopted to install ``python3.6``, which is mandatory for the correct behavior of Xilinx DNNDK TF 3.0, unless you want to use the "old" ``python2``.
 
-2. The Xilinx DNNDK TF 3.0 tool can also work with CPU only, without any CUDA-compatible GPU, of course at detriment of simulation speed. Nevertheless, if your PC has a CUDA-compatible GPU card then you need the following libraries: CUDA 8.0 or 9.0, and cuDNN 7.0.5. Alternatively, you can use a **p2.xlarge EC2** instance of Deep Learning Base AMI Ubuntu (version 15 or beyond) from **AWS**.  Many of the Ubuntu packages required by ML tools are already required by Xilinx [SDx tools](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_1/ug1238-sdx-rnil.pdf) as well, so you would have to install them anyway.
+2. The Xilinx DNNDK TF tool can also work with CPU only, without any CUDA-compatible GPU, of course at detriment of simulation speed. Nevertheless, if your PC has a CUDA-compatible GPU card then you need the following libraries: CUDA 8.0 or 9.0, and cuDNN 7.0.5. Alternatively, you can use a **p2.xlarge EC2** instance of Deep Learning Base AMI Ubuntu (version 15 or beyond) from **AWS**.  Many of the Ubuntu packages required by ML tools are already required by Xilinx [SDx tools](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2018_1/ug1238-sdx-rnil.pdf) as well, so you would have to install them anyway.
 
 3. [Xilinx DNNDK TF 3.0](https://www.xilinx.com/member/forms/download/dnndk-eula-xef.html?filename=xlnx_dnndk_v3.0_190430.tar.gz) release and related [UG1327](https://www.xilinx.com/support/documentation/user_guides/ug1327-dnndk-user-guide.pdf) available from [Xilinx Edge AI Resources](https://www.xilinx.com/products/design-tools/ai-inference/ai-developer-hub.html#edge) webpage. Once downloaded it and stored into your ```$HOME``` directory execute the following commands:
 ```
@@ -23,6 +23,8 @@ ls $HOME/ML/DNNDK3.0/xlnx_dnndk_v3.0_190430/xilinx_dnndk_v3.0/host_x86/decent-tf
 ```
 
 4. <a href="https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-g.html">ZCU102</a> target board and related [DNNDK TF 3.0 image file](https://www.xilinx.com/member/forms/download/zcu102-image-license-xef.html?filename=xilinx-zcu102-prod-dpu1.4-2018.3-desktop-buster-2019-04-24.img.zip).
+
+5. The same flow works also with DNNDK TF 3.1.
 
 
 ## 1.0 Install Dependent Libraries
